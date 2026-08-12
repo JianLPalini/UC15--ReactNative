@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
-import Botao from './botao';
+import Botao from './Botao';
 
 const card1 = () => {
   return (
