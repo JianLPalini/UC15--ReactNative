@@ -1,22 +1,33 @@
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image, ScrollView, Button } from 'react-native'
 import React from 'react'
+import Botao2 from './Botao2'
+import Botao3 from './Botao3'
 
 interface CardFilmesProps {
     id: number,
     titulo: string,
     imagem: string,
     nota: number,
-    genero: string
+    genero: string,
+    navigation: any
 }
 
-const CardFilmes = ({ id, titulo, imagem, nota, genero }: CardFilmesProps) => {
+const CardFilmes = ({ id, titulo, imagem, nota, genero, navigation }: CardFilmesProps) => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.id}>{id}</Text>
-            <Text style={styles.titulo}>Titulo: {titulo}</Text>
-            <Image style={styles.imagem} source={{ uri: imagem }} />
-            <Text style={styles.nota}>Nota: {nota}</Text>
-            <Text style={styles.genero}>Genêro: {genero}</Text>
+        <View style={styles.containerexterno}>
+            <View style={styles.container}>
+
+                <Image style={styles.imagem} source={{ uri: imagem }} />
+
+        <View style={styles.informações}>
+                <Text style={styles.titulo}>Titulo: {titulo}</Text>
+                <Text style={styles.genero}>Genêro: {genero}</Text>
+                <View style={styles.botoes}>
+                <Botao2 texto="Descrição" onPress={() => navigation.navigate('Sinopse')} />
+                <Botao3 texto="Favoritos" onPress={() => navigation.navigate('Favoritos')} />
+                    </View>
+        </View>
+            </View>
         </View>
     )
 }
@@ -24,13 +35,20 @@ const CardFilmes = ({ id, titulo, imagem, nota, genero }: CardFilmesProps) => {
 export default CardFilmes
 
 const styles = StyleSheet.create({
+    containerexterno: {
+        backgroundColor: 'black',
+        width: "100%",
+
+
+    },
     container: {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'rgba(27, 31, 46, 1)',
+        flexDirection: 'row',
         padding: 10,
         margin: 5,
-        borderRadius: 10,
-        width: 510,
-        height: 400,
+        borderRadius: 20,
+        width: "95%",
+        height: "80%",
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 6,
@@ -39,28 +57,40 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 6,
     },
+
     titulo: {
         color: 'orange',
-        fontSize: 25,
-        textAlign: 'center'
+        fontSize: 15,
+        textAlign: 'center',
+        marginTop: 6,
+        marginBottom: 6
     },
     imagem: {
         margin: 6,
         backgroundColor: 'white',
-        width: 250,
-        height: 250,
+        width: "25%",
+        height: "100%",
         borderRadius: 8
     },
     nota: {
         color: 'white',
-        fontSize: 20
+        fontSize: 15,
+        textAlign: 'center'
     },
     genero: {
         color: 'white',
-        fontSize: 18,
+        fontSize: 15,
         textAlign: 'center'
     },
     id: {
-        color: 'orange'
+    },
+    informações: {
+        flex: 1,
+        marginLeft: 15
+    },
+    botoes: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 })

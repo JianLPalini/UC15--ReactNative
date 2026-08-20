@@ -7,22 +7,24 @@ type Filmes = {
   titulo: string
   imagem: string
   nota: number
-  genero: string
+  genero: string,
 }
 
 type ListaFilmesProps = {
   filmes: Filmes[]
+  navigation:any
 }
 
-const ListaFilmes = ({ filmes }: ListaFilmesProps) => {
+const ListaFilmes = ({ filmes, navigation }: ListaFilmesProps) => {
   return (
-    <View>
+    <View style={{ width: '100%' }}>
       <FlatList
         data={filmes}
         keyExtractor={(item) => item.id.toString()}
         numColumns={1}
         renderItem={({ item }) => (
-          <CardFilmes id={item.id} titulo={item.titulo} imagem={item.imagem} nota={item.nota} genero={item.genero} />
+          <CardFilmes navigation={navigation} 
+          id={item.id} titulo={item.titulo} imagem={item.imagem} nota={item.nota} genero={item.genero} />
         )}
       />
     </View>

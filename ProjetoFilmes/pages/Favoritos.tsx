@@ -5,10 +5,6 @@ const Favoritos = ({navigation}:any) => {
   return (
     <View>
       <Text>Favoritos</Text>
-            <Button
-              title='Ir para Home'
-              onPress={() => navigation.navigate('Home')}
-            />
     </View>
   )
 }

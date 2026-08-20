@@ -5,10 +5,6 @@ const Sinopse = ({navigation}:any) => {
   return (
     <View>
       <Text>Sinopse</Text>
-            <Button
-              title='Ir para Home'
-              onPress={() => navigation.navigate('Home')}
-            />
     </View>
   )
 }

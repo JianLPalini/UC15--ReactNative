@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-interface BotaoProps {
+interface Botao2Props {
   texto?: string
   onPress?: () => void
 }
 
-const Botao = ({ texto = 'Procurar', onPress }: BotaoProps) => {
+const Botao2 = ({ texto = 'Descrição', onPress }: Botao2Props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -20,7 +20,7 @@ const Botao = ({ texto = 'Procurar', onPress }: BotaoProps) => {
   )
 }
 
-export default Botao
+export default Botao2
 
 const styles = StyleSheet.create({
   container: {
